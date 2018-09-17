@@ -1,0 +1,15 @@
+﻿.fa-large {
+    color: #516673;
+    font-size: 48px;
+    margin-top: 5px !important;
+}
+tr.minushuman {
+    background-color: #85b4d0 !important;
+}
+
+.page-wrapper-login {
+    background: #516673 !important;
+}
+.page-wrapper-login #page-wrapper {
+    background: #516673;
+}

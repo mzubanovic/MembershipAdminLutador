@@ -1,0 +1,144 @@
+﻿
+@using System.Web.Optimization;
+@using System.Configuration;
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="@ConfigurationManager.AppSettings["prefix"]/plugins/images/favicon.png">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Bootstrap Core CSS -->
+    <link href="@ConfigurationManager.AppSettings["prefix"]bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="@ConfigurationManager.AppSettings["prefix"]plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="@ConfigurationManager.AppSettings["prefix"]plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="@ConfigurationManager.AppSettings["prefix"]plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="@ConfigurationManager.AppSettings["prefix"]css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="@ConfigurationManager.AppSettings["prefix"]css/style.css" rel="stylesheet">
+    <link href="@ConfigurationManager.AppSettings["prefix"]css/Default.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="@ConfigurationManager.AppSettings["prefix"]css/colors/blue-dark.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <div id="wrapper">
+       
+       
+        <!-- Page Content -->
+        <div id="page-wrapper" class="page-wrapper-login">
+            @RenderBody()
+            <footer class="footer text-center"> @DateTime.Now.Year &copy; Pixel Admin brought to you by wrappixel.com </footer>
+        </div>
+    </div>
+
+    <!-- /#wrapper -->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+    <!-- jQuery -->
+    <script src="@ConfigurationManager.AppSettings["prefix"]plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="@ConfigurationManager.AppSettings["prefix"]bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="@ConfigurationManager.AppSettings["prefix"]/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="@ConfigurationManager.AppSettings["prefix"]js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="@ConfigurationManager.AppSettings["prefix"]js/waves.js"></script>
+    <!--Counter js -->
+    <script src="@ConfigurationManager.AppSettings["prefix"]plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="@ConfigurationManager.AppSettings["prefix"]plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!--Morris JavaScript -->
+    <script src="@ConfigurationManager.AppSettings["prefix"]plugins/bower_components/raphael/raphael-min.js"></script>
+    <script src="@ConfigurationManager.AppSettings["prefix"]plugins/bower_components/morrisjs/morris.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="@ConfigurationManager.AppSettings["prefix"]js/custom.min.js"></script>
+    <script src="@ConfigurationManager.AppSettings["prefix"]js/dashboard1.js"></script>
+    <script src="@ConfigurationManager.AppSettings["prefix"]plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.toast({
+                heading: 'Welcome to Pixel admin',
+                text: 'Use the predefined ones, or specify a custom position object.',
+                position: 'top-right',
+                loaderBg: '#ff6849',
+                icon: 'info',
+                hideAfter: 3500,
+                stack: 6
+            })
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>*@

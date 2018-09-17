@@ -1,0 +1,127 @@
+﻿@using System.Configuration
+@model Users
+@{
+    ViewBag.Title = "User profile";
+}
+
+<div class="container-fluid">
+    <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title">Profile page</h4>
+        </div>
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <a href="http://wrappixel.com/templates/pixeladmin/" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Upgrade to Pro</a>
+            <ol class="breadcrumb">
+                <li><a href="#">Dashboard</a></li>
+                <li class="active">Profile page</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <!-- .row -->
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <div class="white-box">
+                <div class="user-bg">
+                    <img width="100%" alt="user" src="@ConfigurationManager.AppSettings["userImgRoot"]background-user.jpg?preset=userBackground">
+                    <div class="overlay-box">
+                        <div class="user-content">
+                            @{ 
+                                var profSlika = ConfigurationManager.AppSettings["userImgRoot"] + "user_placeholder.png?preset=profileImg";
+                                if (!string.IsNullOrEmpty(Model.Slika)) {
+                                    profSlika = ConfigurationManager.AppSettings["userImgRoot"] + Model.Slika + "?preset=profileImg";
+                                    }
+                            }
+
+                            <a href="javascript:void(0)"><img src="@profSlika" class="thumb-lg img-circle" alt="img"></a>
+                            <h4 class="text-white">@Model.Ime  @Model.Prezime</h4>
+                            <h5 class="text-white">@Model.Email</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-btm-box">
+                    <div class="col-md-4 col-sm-4 text-center">
+                        <p class="text-purple"><i class="ti-facebook"></i></p>
+                        <h1>258</h1>
+                    </div>
+                    <div class="col-md-4 col-sm-4 text-center">
+                        <p class="text-blue"><i class="ti-twitter"></i></p>
+                        <h1>125</h1>
+                    </div>
+                    <div class="col-md-4 col-sm-4 text-center">
+                        <p class="text-danger"><i class="ti-dribbble"></i></p>
+                        <h1>556</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-xs-12">
+            <div class="white-box">
+                <form class="form-horizontal form-material" action="@Url.Action("UserProfile","Home")" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_profile_update" value="yes" />
+                    <div class="form-group">
+                        <label class="col-md-12">Name</label>
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Name" name="ime" class="form-control form-control-line" value="@Model.Ime">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Prezime</label>
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Prezime" name="prezime" class="form-control form-control-line" value="@Model.Prezime">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="example-email" class="col-md-12">Email</label>
+                        <div class="col-md-12">
+                            <input readonly type="email" placeholder="Email" class="form-control form-control-line" name="example-email" id="example-email" value="@Model.Email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-12">Phone No</label>
+                        <div class="col-md-12">
+                            <input type="text" name="tel" placeholder="tel" class="form-control form-control-line" value="@Model.Tel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Profilna slika</label>
+                        <div class="col-md-12">
+                            <input type="file" name="file" id="fileUpload" /><br />
+                            @*<input id="btnUploadFile" type="button" value="Upload File" />*@
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button class="btn btn-success">Update Profile</button>
+                        </div>
+                    </div>
+                </form>
+                <form class="form-horizontal form-material" id="kontakt-forma" method="POST" action="@Url.Action("Message","Home")">
+                    <div class="form-group">
+                        <label class="col-md-12">Message</label>
+                        <input type="hidden" name="_message_from_user" value="true" />
+                        <input type="hidden" name="_userId" value="@Model.Id" />
+                        <div class="col-md-12">
+                            <textarea rows="5" name="msg" class="form-control form-control-line"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button class="btn btn-success">Javi se Stipi</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-- /.row -->
+    
+    
+</div>
+
